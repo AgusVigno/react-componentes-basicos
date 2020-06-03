@@ -1,26 +1,53 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Fragment, useState } from 'react';
+import Header from './components/Header';
+import Footer from './components/Footer';
+import Producto from './components/Producto';
+import Carrito from './components/Carrito';
 
 function App() {
-  return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
-  );
+
+	// Crear listado de productos
+	const [productos, guardarProductos] = useState([
+		{id: 1, nombre: "Camisa de Angular", precio: 50},
+		{id: 2, nombre: "Camisa de VueJS", precio: 20},
+		{id: 3, nombre: "Camisa de Node.js", precio: 40},
+		{id: 4, nombre: "Camisa de ReactJS", precio: 30}
+	]);
+
+	// State para el carrito de compras
+	const [carrito, agregarProducto] = useState([]);
+
+	//Obtener fecha
+	const fecha = new Date().getFullYear();
+	
+	return (
+
+		<Fragment>
+			<Header
+				titulo = "Tienda Virtual"
+			/>
+
+			<h1>Lista de Productos</h1>
+			{productos.map(producto => (
+				<Producto
+					key = {producto.id} 
+					producto = {producto}
+					productos = {productos}
+					carrito = {carrito}
+					agregarProducto = {agregarProducto}
+				/>
+			))}
+
+			<Carrito 
+				carrito = {carrito}
+				agregarProducto = {agregarProducto}
+			/>
+			
+			<Footer
+				fecha = {fecha}
+			/>
+		</Fragment>
+	)
 }
 
 export default App;
