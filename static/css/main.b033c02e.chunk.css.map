@@ -1,0 +1,1 @@
+{"version":3,"sources":["carrito.css"],"names":[],"mappings":"AAAA,SACI,cAAe,CACf,KAAM,CACN,OAAQ,CACR,WAAY,CACZ,qBACJ","file":"main.b033c02e.chunk.css","sourcesContent":[".carrito{\n    position: fixed;\n    top: 0;\n    right: 0;\n    width: 400px;\n    background-color: white;\n}"]}
